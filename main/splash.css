@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff4b2b, #ff416c);
+  background-image:url(gymcanva.png) ;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.splash-container {
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.splash-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.splash-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  animation: float 3s ease-in-out infinite alternate;
+  font-family: "Monoton", sans-serif;
+  color: #e1d9da;
+}
+
+.enter-btn {
+  margin-top: 30px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  background-color:gray;
+  color: #000000;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.enter-btn:hover {
+  transform: scale(1.05);
+  background-color: #383233;
+  color: white;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

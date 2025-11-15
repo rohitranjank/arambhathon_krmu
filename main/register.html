@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register — GYMPUSH</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="auth-page">
+    <div class="card">
+      <h2>Create account</h2>
+      <form id="registerForm">
+        <label>Display name
+          <input type="text" id="regName" required />
+        </label>
+        <label>Email
+          <input type="email" id="regEmail" required />
+        </label>
+        <label>Password
+          <input type="password" id="regPassword" minlength="4" required />
+        </label>
+        <button type="submit" class="btn">Register</button>
+      </form>
+      <p class="muted">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </main>
+
+  <script src="auth.js"></script>
+</body>
+</html>

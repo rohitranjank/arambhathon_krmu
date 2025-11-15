@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — GYMPUSH</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">GYMPUSH</div>
+      <div class="nav-actions">
+        <span id="welcomeSpan">Welcome</span>
+        <button id="logoutBtn" class="btn small">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container grid">
+    <section class="card">
+      <h3>Quick Track</h3>
+      <p>Add a workout or award points.</p>
+      <form id="workoutForm">
+        <label>Workout name
+          <input id="workoutName" required />
+        </label><br>
+        <label>Duration (minutes)
+          <input type="number" id="workoutDuration" min="1" value="30" required />
+        </label>
+        <label>Points earned
+          <input type="number" id="workoutPoints" min="0" value="10" required />
+        </label>
+        <div style="display:flex;gap:8px">
+          <button class="btn" type="submit">Add</button>
+          <button id="addRandom" type="button" class="btn outline">Add random</button>
+        </div>
+      </form>
+
+      <h4>Recent workouts</h4>
+      <ul id="recentList" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <h3>Leaderboard</h3>
+      <p>Top users by points</p>
+      <a class="btn small" href="leaderboard.html">Open leaderboard</a>
+      <ol id="miniLeaderboard" class="list"></ol>
+    </section>
+    <br><br>
+    
+    <section class="routine-section" >
+      <h2 class="routine-title">Your Weekly Workout Routine</h2>
+
+      <div class="routine-container">
+
+        <div class="day-card">
+            <h3>Monday</h3>
+            <p>Leg Day</p>
+            <ul>
+                <li>Squats - 4 sets - 20pts </li>
+                <li>Lunges - 3 sets - 15pts</li>
+                <li>Leg Press - 3 sets - 15pts</li>
+                <li>Calf Raises - 4 sets -20pts</li>
+            </ul>
+        </div>
+
+        <div class="day-card">
+            <h3>Tuesday</h3>
+            <p>Chest</p>
+            <ul>
+                <li>Bench Press - 4 sets - 20pts</li>
+                <li>Incline Dumbbell Press - 3 sets - 15pts</li>
+                <li>Chest Fly - 3 sets - 15pts</li>
+                <li>Push-ups - 20 reps - 20pts</li>
+            </ul>
+        </div>
+
+        <div class="day-card">
+            <h3>Wednesday</h3>
+            <p>Back</p>
+            <ul>
+                <li>Deadlifts - 4 sets - 20pts</li>
+                <li>Lat Pulldown - 3 sets - 15pts</li>
+                <li>Rows - 3 sets - 15pts</li>
+                <li>Pull-ups - 10 reps - 10pts</li>
+            </ul>
+        </div>
+
+        <div class="day-card">
+            <h3>Thursday</h3>
+            <p>Shoulders</p>
+            <ul>
+                <li>Overhead Press - 4 sets - 20pts</li>
+                <li>Lateral Raises - 3 sets - 15pts</li>
+                <li>Front Raises - 3 sets - 15pts</li>
+                <li>Shrugs - 4 sets - 20pts</li>
+            </ul>
+          </div>
+
+        <div class="day-card">
+            <h3>Friday</h3>
+            <p>Arms</p>
+            <ul>
+                <li>Bicep Curls - 4 sets - 20pts</li>
+                <li>Hammer Curls - 3 sets - 15pts</li>
+                <li>Tricep Pushdown - 3 sets - 15pts</li>
+                <li>Dips - 10 reps - 10pts</li>
+            </ul>
+        </div>
+
+        <div class="day-card">
+            <h3>Saturday</h3>
+            <p>Abs & Core</p>
+            <ul>
+                <li>Plank - 1 min - 10pts</li>
+                <li>Crunches - 20 reps - 20pts</li>
+                <li>Russian Twist - 20 reps - 20pts</li>
+                <li>Leg Raises - 15 reps - 15pts</li>
+            </ul>
+        </div>
+
+        <div class="day-card">
+            <h3>Sunday</h3>
+            <p>Rest & Recovery</p>
+            <ul>
+                <li>Light Stretching</li>
+                <li>Hydration</li>
+                <li>Relaxation</li>
+                <li>Sleep 8 Hours</li>
+            </ul>
+        </div>
+
+      </div>
+    </section>
+
+   <section class="diet-plan-section">
+    <h2>Diet Plan</h2>
+
+     <div class="diet-selector">
+        <label for="weightRange">Select Your Weight Range:</label>
+        <select id="weightRange">
+            <option value="">-- Choose Weight Range --</option>
+            <option value="50-55">50-55 KG</option>
+            <option value="55-60">55-60 KG</option>
+            <option value="60-65">60-65 KG</option>
+            <option value="65-70">65-70 KG</option>
+            <option value="70-75">70-75 KG</option>
+            <option value="75-80">75-80 KG</option>
+            <option value="80-85">80-85 KG</option>
+            <option value="85-90">85-90 KG</option>
+        </select>
+     </div>
+
+      <div id="dietResult" class="diet-result hidden"></div>
+   </section>
+
+
+
+    <section class="card full">
+      <h3>Profile</h3>
+      <p id="profileInfo"></p>
+      <div>
+        <button id="resetPoints" class="btn outline">Reset my points</button>
+        <button id="deleteAccount" class="btn ghost">Delete account</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="auth.js"></script>
+  <script src="leaderboard.js"></script>
+  <script src="app.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
